@@ -60,12 +60,12 @@ class Motors:
         
         pin0.write_analog(analog_val)
         pin1.write_digital(0)
-        
+    
     # reverse() will reverse the bit:bot at a 
     # certain speed
     def reverse(self, speed):
         check_speed(speed)
-        analog_val = 1023 - to_analog(speed)
+        analog_val = ANALOG_MAX - to_analog(speed)
         
         # Setting our bit:bot motors direction
         # to go backwards before sending it backwards
@@ -74,3 +74,15 @@ class Motors:
         
         pin0.write_analog(analog_val)
         pin1.write_analog(analog_val)  
+
+# Class for dealing with Line following       
+class Line:
+    # detecting whether on a line on right sensor
+    def is_right_line(self):
+        right_ln_val = pin5.read_digital()
+        return right_ln_val
+        
+    # detecting whether on a line on left sensor
+    def is_right_line(self):
+        left_ln_val = pin5.read_digital()
+        return left_ln_val
