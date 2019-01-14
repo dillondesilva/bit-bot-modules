@@ -78,11 +78,14 @@ class Motors:
 # Class for dealing with Line following       
 class Line:
     # detecting whether on a line on right sensor
+    # return true if on line otherwise false
     def is_right_line(self):
-        right_ln_val = pin5.read_digital()
+        right_ln_val = not bool(pin5.read_digital())
         return right_ln_val
         
     # detecting whether on a line on left sensor
+    # return true if on line otherwise false
     def is_right_line(self):
-        left_ln_val = pin5.read_digital()
+        left_ln_val = not bool(pin5.read_digital())
         return left_ln_val
+    
