@@ -6,7 +6,7 @@ ANALOG_MAX = 1023
 # 0-1023 for valid analog signals
 def to_analog(value):
     global ANALOG_MAX
-    analog_val = value * ANALOG_MAX
+    analog_val = int(value * ANALOG_MAX)
     return analog_val
 
 # Checking that the user has entered a valid
@@ -21,6 +21,11 @@ class Motors:
     # accelerate() moves the Bit:bot forward at a speed
     # set by the user. The speed must be between 0 - 1
     def accelerate(self, speed):
+        # Setting our bit:bot motors direction
+        # to go forwards before sending it forwards
+        pin8.write_digital(0)
+        pin12.write_digital(0) 
+        
         # Checking that the user has entered a valid
         # speed before we can set the motors to that
         # speed
@@ -32,6 +37,11 @@ class Motors:
     
     # Halting to a complete stop
     def stop(self):
+        # Setting our bit:bot motors direction
+        # to go forwards before stopping by default
+        pin8.write_digital(0)
+        pin12.write_digital(0) 
+        
         pin0.write_digital(0)
         pin1.write_digital(0)
         
@@ -50,3 +60,17 @@ class Motors:
         
         pin0.write_analog(analog_val)
         pin1.write_digital(0)
+        
+    # reverse() will reverse the bit:bot at a 
+    # certain speed
+    def reverse(self, speed):
+        check_speed(speed)
+        analog_val = 1023 - to_analog(speed)
+        
+        # Setting our bit:bot motors direction
+        # to go backwards before sending it backwards
+        pin8.write_digital(1)
+        pin12.write_digital(1) 
+        
+        pin0.write_analog(analog_val)
+        pin1.write_analog(analog_val)  
