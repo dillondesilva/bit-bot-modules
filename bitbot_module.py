@@ -19,3 +19,9 @@ class Motors:
         analog_val = to_analog(speed)
         pin0.write_analog(analog_val)
         pin1.write_analog(analog_val)
+    
+    # Halting to a complete stop
+    def stop(self):
+        pin0.write_digital(0)
+        pin1.write_digital(0)
+        
