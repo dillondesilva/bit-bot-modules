@@ -88,4 +88,8 @@ class Line:
     def is_right_line(self):
         left_ln_val = not bool(pin5.read_digital())
         return left_ln_val
-    
+        
+class Light:
+    def get_light_val(self):
+        light_val = pin2.read_digital()
+        print(light_val)
