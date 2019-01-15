@@ -85,8 +85,8 @@ class Line:
         
     # detecting whether on a line on left sensor
     # return true if on line otherwise false
-    def is_right_line(self):
-        left_ln_val = not bool(pin5.read_digital())
+    def is_left_line(self):
+        left_ln_val = not bool(pin11.read_digital())
         return left_ln_val
         
 class Light:
