@@ -44,3 +44,44 @@ To spin right on axis, call spin_right(speed)
 # Spin right at 70% speed
 motors.spin_right(0.7)
 ```
+
+To stop motors, call stop()
+```
+motors.stop()
+```
+
+#### Line()
+To initialise Line Sensing, do
+```
+line_s = Line()
+```
+
+Checking left line sensor and right line sensor
+```
+# Both functions resectively return a boolean
+# as to whether the sensor has detected a line
+right_ln = line_s.is_right_line()
+left_ln = line_s.is_left_line()
+
+# Conditionals with our bools from the functions
+if right_ln or left_ln:
+  # do something
+```
+
+
+#### Light()
+To initialise Light Sensing, do
+```
+light = Light()
+```
+
+Getting the value of light is as easy as calling get_light_val()
+```
+# Gets light value
+light.get_light_val()
+```
+
+### Contributing
+If you have an idea as to how to improve this module, please fork it, edit it and send a pull request
+
+For any issues, please launch one in this repository
