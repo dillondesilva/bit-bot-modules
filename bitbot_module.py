@@ -51,7 +51,7 @@ class Motors:
         analog_val = to_analog(speed)
         
         pin0.write_analog(0)
-        pin1.write_digital(analog_val)
+        pin1.write_analog(analog_val)
         
     # spin_right() spins the Bit:bot right at a certain speed
     def spin_right(self, speed):
@@ -59,7 +59,7 @@ class Motors:
         analog_val = to_analog(speed)
         
         pin0.write_analog(analog_val)
-        pin1.write_digital(0)
+        pin1.write_analog(0)
     
     # reverse() will reverse the bit:bot at a 
     # certain speed
@@ -93,3 +93,6 @@ class Light:
     def get_light_val(self):
         light_val = pin2.read_digital()
         print(light_val)
+        
+motors = Motors()
+motors.spin_left(0.7)
